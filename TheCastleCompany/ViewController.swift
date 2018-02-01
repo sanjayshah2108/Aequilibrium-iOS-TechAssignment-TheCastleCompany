@@ -88,7 +88,6 @@ class ViewController: UIViewController {
                     }
                     
                     lastLowPoint = index
-                    
                 }
                     
                 else {
@@ -111,7 +110,13 @@ class ViewController: UIViewController {
         var currentArrayLabelString: String = ""
         
         for item in theEnteredArray{
-            currentArrayLabelString = currentArrayLabelString + ", \(String(item))"
+            
+            if (currentArrayLabelString == ""){
+                currentArrayLabelString = String(item)
+            }
+            else {
+                currentArrayLabelString = currentArrayLabelString + ", \(String(item))"
+            }
         }
         
         entryTextField.text = ""
