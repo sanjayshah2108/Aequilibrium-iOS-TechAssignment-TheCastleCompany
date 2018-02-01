@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" systemVersion="17A277" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -9,13 +13,79 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="TheCastleCompany" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Il3-Ki-AhR">
+                                <rect key="frame" x="162.5" y="58" width="50" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="50" id="9xB-Yp-uVo"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QRN-2E-eNh">
+                                <rect key="frame" x="144.5" y="96" width="86" height="30"/>
+                                <state key="normal" title="Add to Array"/>
+                                <connections>
+                                    <action selector="addToArray:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Atf-YF-AD3"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6z7-EP-8th">
+                                <rect key="frame" x="169" y="163" width="37" height="30"/>
+                                <state key="normal" title="Done"/>
+                                <connections>
+                                    <action selector="calculate:" destination="BYZ-38-t0r" eventType="touchUpInside" id="2qh-np-faa"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Current Array" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zcu-bb-jgp">
+                                <rect key="frame" x="135.5" y="134" width="104" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nmQ-Md-Fjm">
+                                <rect key="frame" x="317" y="40" width="39" height="30"/>
+                                <state key="normal" title="Reset"/>
+                                <connections>
+                                    <action selector="reset:" destination="BYZ-38-t0r" eventType="touchUpInside" id="6TB-V9-0Fq"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Castle Count" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2ew-Qi-QFh">
+                                <rect key="frame" x="138" y="218" width="99" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="nmQ-Md-Fjm" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="5Wv-TT-9U9"/>
+                            <constraint firstItem="QRN-2E-eNh" firstAttribute="top" secondItem="Il3-Ki-AhR" secondAttribute="bottom" constant="8" id="6Ni-Fg-kab"/>
+                            <constraint firstItem="zcu-bb-jgp" firstAttribute="top" secondItem="QRN-2E-eNh" secondAttribute="bottom" constant="8" id="9OC-d7-4Ij"/>
+                            <constraint firstItem="2ew-Qi-QFh" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="LGS-vx-pzb"/>
+                            <constraint firstItem="6z7-EP-8th" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="LY2-tc-59S"/>
+                            <constraint firstItem="6z7-EP-8th" firstAttribute="top" secondItem="zcu-bb-jgp" secondAttribute="bottom" constant="8" id="TpJ-gn-4XZ"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="nmQ-Md-Fjm" secondAttribute="trailing" constant="19" id="bFg-z6-Ooj"/>
+                            <constraint firstItem="QRN-2E-eNh" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="dsa-P0-5bs"/>
+                            <constraint firstItem="Il3-Ki-AhR" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="38" id="f3X-27-g67"/>
+                            <constraint firstItem="2ew-Qi-QFh" firstAttribute="top" secondItem="6z7-EP-8th" secondAttribute="bottom" constant="25" id="gpw-5k-VtV"/>
+                            <constraint firstItem="Il3-Ki-AhR" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="tS4-R8-PKJ"/>
+                            <constraint firstItem="zcu-bb-jgp" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="xiP-6C-0Ee"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="addToArrayButton" destination="QRN-2E-eNh" id="phZ-y1-Q56"/>
+                        <outlet property="calculateButton" destination="6z7-EP-8th" id="wgS-9k-RIH"/>
+                        <outlet property="castleCountLabel" destination="2ew-Qi-QFh" id="qoZ-Rb-ADi"/>
+                        <outlet property="currentArrayLabel" destination="zcu-bb-jgp" id="rTa-MN-oBC"/>
+                        <outlet property="entryTextField" destination="Il3-Ki-AhR" id="jkP-IV-2ej"/>
+                        <outlet property="resetButton" destination="nmQ-Md-Fjm" id="POi-EA-adS"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
