@@ -60,6 +60,9 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mT0-kx-MkZ">
+                                <rect key="frame" x="16" y="8" width="343" height="659"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -72,9 +75,13 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="nmQ-Md-Fjm" secondAttribute="trailing" constant="19" id="bFg-z6-Ooj"/>
                             <constraint firstItem="QRN-2E-eNh" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="dsa-P0-5bs"/>
                             <constraint firstItem="Il3-Ki-AhR" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="38" id="f3X-27-g67"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="mT0-kx-MkZ" secondAttribute="trailing" constant="16" id="fiB-w7-tFl"/>
                             <constraint firstItem="2ew-Qi-QFh" firstAttribute="top" secondItem="6z7-EP-8th" secondAttribute="bottom" constant="25" id="gpw-5k-VtV"/>
+                            <constraint firstItem="mT0-kx-MkZ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="iPt-fL-qB5"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="mT0-kx-MkZ" secondAttribute="bottom" id="inJ-lc-I2a"/>
                             <constraint firstItem="Il3-Ki-AhR" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="tS4-R8-PKJ"/>
                             <constraint firstItem="zcu-bb-jgp" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="xiP-6C-0Ee"/>
+                            <constraint firstItem="mT0-kx-MkZ" firstAttribute="top" secondItem="2ew-Qi-QFh" secondAttribute="bottom" constant="-231" id="z1Y-tS-5vu"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -84,11 +91,13 @@
                         <outlet property="castleCountLabel" destination="2ew-Qi-QFh" id="qoZ-Rb-ADi"/>
                         <outlet property="currentArrayLabel" destination="zcu-bb-jgp" id="rTa-MN-oBC"/>
                         <outlet property="entryTextField" destination="Il3-Ki-AhR" id="jkP-IV-2ej"/>
+                        <outlet property="graphView" destination="mT0-kx-MkZ" id="g9x-sG-MSu"/>
                         <outlet property="resetButton" destination="nmQ-Md-Fjm" id="POi-EA-adS"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="80.799999999999997" y="38.23088455772114"/>
         </scene>
     </scenes>
 </document>
