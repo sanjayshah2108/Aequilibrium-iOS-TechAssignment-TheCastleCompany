@@ -18,3 +18,12 @@ ints.      For   example,   in   the   sequence   [2,6,6,6,3]   the   sequence  
 
 ● A   valley   is   an   integer   or   series   of   integers   that   is   below   the   immediately   preceding   and
 following   ints.      For   example,   in   the   sequence   [6,1,4]   the   "1"   would   be   a   valley.
+
+
+# My Assumption
+
+We are not building castles on the last piece of land.
+
+# How to Run Test
+
+Simply run the iOS App in a simulator or on a device, and test away!
