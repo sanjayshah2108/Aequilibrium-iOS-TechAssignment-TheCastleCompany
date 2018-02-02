@@ -141,6 +141,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
         
         castleCountLabel.text = String(buildCastles(array: theEnteredArray))
         
+        graphView.alpha = 0.5
         renderPeaksAndValleys(array: theEnteredArray)
         renderCastles(array: castleAtIndexesArray)
     }
@@ -155,6 +156,9 @@ class ViewController: UIViewController, UITextFieldDelegate {
         castleCountLabel.text = String(castleCount)
         
         castleAtIndexesArray = []
+        renderPeaksAndValleys(array: castleAtIndexesArray)
+        renderCastles(array: castleAtIndexesArray)
+        
         
     }
     
