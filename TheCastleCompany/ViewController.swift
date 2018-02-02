@@ -10,20 +10,12 @@ import UIKit
 
 class ViewController: UIViewController, UITextFieldDelegate {
     
-    
     @IBOutlet weak var resetButton: UIButton!
-    
     @IBOutlet weak var entryTextField: UITextField!
-    
     @IBOutlet weak var addToArrayButton: UIButton!
-    
     @IBOutlet weak var currentArrayLabel: UILabel!
-    
     @IBOutlet weak var calculateButton: UIButton!
-    
     @IBOutlet weak var castleCountLabel: UILabel!
-    
-    
     @IBOutlet weak var graphView: UIView!
     
     var theEnteredArray: [Int]!
@@ -35,6 +27,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupUI()
         entryTextField.delegate = self
         
         view.sendSubview(toBack: graphView)
@@ -44,7 +37,6 @@ class ViewController: UIViewController, UITextFieldDelegate {
         
         castleCount = 0
         castleCountLabel.text = String(castleCount)
-    
     }
 
     override func didReceiveMemoryWarning() {
@@ -52,6 +44,25 @@ class ViewController: UIViewController, UITextFieldDelegate {
         // Dispose of any resources that can be recreated.
     }
 
+    func setupUI(){
+        calculateButton.layer.borderColor = UIColor.blue.cgColor
+        calculateButton.layer.borderWidth = 2.0
+        calculateButton.layer.cornerRadius = 5.0
+        calculateButton.tintColor = UIColor.white
+        calculateButton.backgroundColor = UIColor.blue
+        
+        addToArrayButton.layer.borderColor = UIColor.blue.cgColor
+        addToArrayButton.layer.borderWidth = 2.0
+        addToArrayButton.layer.cornerRadius = 5.0
+        addToArrayButton.tintColor = UIColor.white
+        addToArrayButton.backgroundColor = UIColor.blue
+        
+        resetButton.layer.borderColor = UIColor.blue.cgColor
+        resetButton.layer.borderWidth = 2.0
+        resetButton.layer.cornerRadius = 5.0
+        resetButton.tintColor = UIColor.white
+        resetButton.backgroundColor = UIColor.blue
+    }
     
     func buildCastles(array: [Int]) -> Int {
         
@@ -75,11 +86,9 @@ class ViewController: UIViewController, UITextFieldDelegate {
                 lastHighPoint = 0
                 lastLowPoint = 0
             }
+                
             else {
                 if (element > lastElement){
-                    print("we could be at a peak")
-                    
-                    
                     if (array[lastLowPoint] == lastElement){
                         castleCount = castleCount + 1
                         print("\(lastElement) is a valley")
@@ -87,12 +96,9 @@ class ViewController: UIViewController, UITextFieldDelegate {
                     }
                     
                     lastHighPoint = index
-                    
                 }
                     
                 else if (element < lastElement){
-                    print("we could be at a valley")
-                    
                     if (array[lastHighPoint] == lastElement){
                         castleCount = castleCount + 1
                         print("\(lastElement) is a peak")
@@ -130,18 +136,16 @@ class ViewController: UIViewController, UITextFieldDelegate {
                 currentArrayLabelString = currentArrayLabelString + ", \(String(item))"
             }
         }
-        
+
         entryTextField.text = ""
         currentArrayLabel.text = currentArrayLabelString
-        
     }
-    
     
     @IBAction func calculate(_ sender: UIButton) {
         
-        castleCountLabel.text = String(buildCastles(array: theEnteredArray))
-        
+        castleCountLabel.text = "No. of castles:" + String(buildCastles(array: theEnteredArray))
         graphView.alpha = 0.5
+        
         renderPeaksAndValleys(array: theEnteredArray)
         renderCastles(array: castleAtIndexesArray)
     }
@@ -156,13 +160,13 @@ class ViewController: UIViewController, UITextFieldDelegate {
         castleCountLabel.text = String(castleCount)
         
         castleAtIndexesArray = []
-        renderPeaksAndValleys(array: castleAtIndexesArray)
-        renderCastles(array: castleAtIndexesArray)
         
-        
+        for view in graphView.subviews{
+            view.removeFromSuperview()
+        }
     }
     
-    
+    // render stretch of land on graph
     func renderPeaksAndValleys(array: [Int]){
         
         var xPoint = 0
@@ -176,33 +180,28 @@ class ViewController: UIViewController, UITextFieldDelegate {
             xPoint += 25
            
             graphView.addSubview(bar)
-            
         }
     }
     
+    //render castles on graph
     func renderCastles(array: [Int]){
         
         var xPoint = 0
         
         for castle in array {
-            
-            xPoint += (25*castle)
-            
-            
+      
+            xPoint = (25*castle)
+           
             let castleImage = UIView(frame: CGRect(x: xPoint+10, y: Int(UIScreen.main.bounds.maxY) - (theEnteredArray[castle]*10), width: 20, height: 15))
             
             castleImage.backgroundColor = UIColor.orange
             castleImage.alpha = 0.5
-            
-            
-            
+     
             graphView.addSubview(castleImage)
-            
         }
-        
     }
     
-    
+    //text field methods
     func textFieldDidBeginEditing(_ textField: UITextField) {
         
         tapGesture = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard(_:)))
@@ -214,17 +213,10 @@ class ViewController: UIViewController, UITextFieldDelegate {
         if (tapGesture != nil){
             self.view.removeGestureRecognizer(tapGesture)
         }
-        
-        
     }
     
     @objc func dismissKeyboard (_ sender: UITapGestureRecognizer) {
         entryTextField.resignFirstResponder()
-        
     }
-    
-    
-
-    
 }
 
